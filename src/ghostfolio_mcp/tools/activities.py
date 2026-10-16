@@ -220,9 +220,7 @@ def register_activities_tools(mcp: FastMCP, config: GhostfolioConfig) -> None:
             Dictionary containing the updated activity
         """
         async with get_ghostfolio_client(config) as client:
-            current = await client.get(
-                f"activities/{quote_path_segment(activity_id)}"
-            )
+            current = await client.get(f"activities/{quote_path_segment(activity_id)}")
             current_symbol_profile = current.get("SymbolProfile") or current.get(
                 "assetProfile", {}
             )
@@ -238,7 +236,9 @@ def register_activities_tools(mcp: FastMCP, config: GhostfolioConfig) -> None:
                 "id": activity_id,
                 "type": type if type is not None else current.get("type"),
                 "symbol": (
-                    symbol if symbol is not None else current_symbol_profile.get("symbol")
+                    symbol
+                    if symbol is not None
+                    else current_symbol_profile.get("symbol")
                 ),
                 "date": date if date is not None else current.get("date"),
                 "quantity": (

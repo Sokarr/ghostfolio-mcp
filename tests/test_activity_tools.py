@@ -129,7 +129,9 @@ async def test_update_activity_backfills_required_fields_from_current_activity(
                 "comment": None,
                 "accountId": "acc-1",
                 "SymbolProfile": {"symbol": "VFIAX", "dataSource": "YAHOO"},
-                "tags": [{"id": "a1bbe3e0-628b-4cdf-bf7c-78e0fe3a0b17", "name": "Retirement"}],
+                "tags": [
+                    {"id": "a1bbe3e0-628b-4cdf-bf7c-78e0fe3a0b17", "name": "Retirement"}
+                ],
             },
         )
     )
